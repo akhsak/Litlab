@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "651831217940",
+    "project_id": "test-flutter-53cab",
+    "storage_bucket": "test-flutter-53cab.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:651831217940:android:9797325fdc72924833fc01",
+        "android_client_info": {
+          "package_name": "com.example.flutter_litlab"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "651831217940-l0mgv6kibi20o1e5ppgd32h6fm4k27sk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDG4xjZF-14M8if4cc4gyIqPXQMKw5l2yY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "651831217940-l0mgv6kibi20o1e5ppgd32h6fm4k27sk.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "651831217940-9pvhkn2n19kqfits4su2imsi8a26p9o4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.task"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
