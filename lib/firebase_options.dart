@@ -51,7 +51,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyDG4xjZF-14M8if4cc4gyIqPXQMKw5l2yY',
-    appId: '1:651831217940:android:9797325fdc72924833fc01',
+    appId: '1:651831217940:android:0e57779adabe347433fc01',
     messagingSenderId: '651831217940',
     projectId: 'test-flutter-53cab',
     storageBucket: 'test-flutter-53cab.firebasestorage.app',
@@ -59,27 +59,27 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyA5eRUDpwEB79lsNGvZA2pcx15jrsKGPz8',
-    appId: '1:651831217940:ios:9768be68692f86c333fc01',
+    appId: '1:651831217940:ios:c9e8cdcf550ddd0e33fc01',
     messagingSenderId: '651831217940',
     projectId: 'test-flutter-53cab',
     storageBucket: 'test-flutter-53cab.firebasestorage.app',
     androidClientId: '651831217940-jqcorrtgsm1dbjjt7pnheurr886b2a7e.apps.googleusercontent.com',
-    iosBundleId: 'com.example.flutterLitltab',
+    iosBundleId: 'com.example.littlab',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
     apiKey: 'AIzaSyA5eRUDpwEB79lsNGvZA2pcx15jrsKGPz8',
-    appId: '1:651831217940:ios:9768be68692f86c333fc01',
+    appId: '1:651831217940:ios:c9e8cdcf550ddd0e33fc01',
     messagingSenderId: '651831217940',
     projectId: 'test-flutter-53cab',
     storageBucket: 'test-flutter-53cab.firebasestorage.app',
     androidClientId: '651831217940-jqcorrtgsm1dbjjt7pnheurr886b2a7e.apps.googleusercontent.com',
-    iosBundleId: 'com.example.flutterLitltab',
+    iosBundleId: 'com.example.littlab',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
     apiKey: 'AIzaSyC4FSerniuJrNGQ7N7n7ozY2SVd6fCG-F4',
-    appId: '1:651831217940:web:21155703add590f233fc01',
+    appId: '1:651831217940:web:9d6e02f61c33eee633fc01',
     messagingSenderId: '651831217940',
     projectId: 'test-flutter-53cab',
     authDomain: 'test-flutter-53cab.firebaseapp.com',

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_litltab/controller/auth_provider.dart';
-import 'package:flutter_litltab/view/auth/signup.dart';
-import 'package:flutter_litltab/view/widget/text.dart';
+
+import 'package:littlab/controller/auth_provider.dart';
+import 'package:littlab/view/auth/signup.dart';
+import 'package:littlab/view/widget/text.dart';
 import 'package:provider/provider.dart';
 
 import 'forget_pswrd/forget.dart';

@@ -2,10 +2,11 @@ import 'dart:developer';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_litltab/model/auth_model.dart';
-import 'package:flutter_litltab/service/auth_service.dart';
-import 'package:flutter_litltab/view/widget/bottombar.dart';
-import 'package:flutter_litltab/view/widget/text.dart';
+import 'package:littlab/model/auth_model.dart';
+import 'package:littlab/service/auth_service.dart';
+import 'package:littlab/view/widget/bottombar.dart';
+import 'package:littlab/view/widget/text.dart';
+
 
 class LoginProvider extends ChangeNotifier {
   final AuthService authService = AuthService();

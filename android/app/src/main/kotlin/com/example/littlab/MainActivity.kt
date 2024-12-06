@@ -1,4 +1,4 @@
-package com.example.flutter_litltab
+package com.example.littlab
 
 import io.flutter.embedding.android.FlutterActivity
 

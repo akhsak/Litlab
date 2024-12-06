@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_litltab/controller/auth_provider.dart';
+import 'package:littlab/controller/auth_provider.dart';
 import 'package:provider/provider.dart';
 
 class ForgotPasswordScreen extends StatelessWidget {

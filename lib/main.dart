@@ -1,9 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_litltab/controller/auth_provider.dart';
-import 'package:flutter_litltab/controller/bottom.dart';
-import 'package:flutter_litltab/firebase_options.dart';
-import 'package:flutter_litltab/view/widget/splash_second.dart';
+import 'package:littlab/controller/auth_provider.dart';
+import 'package:littlab/controller/bottom.dart';
+import 'package:littlab/firebase_options.dart';
+import 'package:littlab/view/widget/splash_second.dart';
 import 'package:provider/provider.dart';
 
 void main() async {

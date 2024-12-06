@@ -1,9 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_litltab/controller/auth_provider.dart';
-import 'package:flutter_litltab/controller/bottom.dart';
-import 'package:flutter_litltab/view/auth/login_page.dart';
-import 'package:flutter_litltab/view/widget/text.dart';
+import 'package:littlab/controller/auth_provider.dart';
+import 'package:littlab/controller/bottom.dart';
+import 'package:littlab/view/auth/login_page.dart';
+import 'package:littlab/view/widget/text.dart';
+
 import 'package:provider/provider.dart';
 
 class SettingsPage extends StatelessWidget {
