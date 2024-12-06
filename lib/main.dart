@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:littlab/controller/auth_provider.dart';
 import 'package:littlab/controller/bottom.dart';
 import 'package:littlab/controller/course_provider.dart';
+import 'package:littlab/controller/vedio_Provider.dart';
 import 'package:littlab/firebase_options.dart';
 import 'package:littlab/view/splash_second.dart';
 import 'package:provider/provider.dart';
@@ -28,6 +29,9 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (context) => CourseProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => VideoProvider(),
         ),
       ],
       child: MaterialApp(

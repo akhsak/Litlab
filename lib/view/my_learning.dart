@@ -1,93 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:littlab/controller/vedio_Provider.dart';
+import 'package:provider/provider.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
-class MyLearning extends StatefulWidget {
-  final String? title;
-
-  const MyLearning({super.key, this.title});
-
-  @override
-  _MyLearningState createState() => _MyLearningState();
-}
-
-class _MyLearningState extends State<MyLearning> {
-  final List<Map<String, dynamic>> videos = [
-    {
-      "title": "Introduction to UI/UX Design",
-      "duration": "10 Min 13 Sec",
-      "url":
-          "https://www.youtube.com/watch?v=9gTw2EDkaDQ", // Valid UI/UX Intro Video
-      "unlocked": true,
-    },
-    {
-      "title": "What is UI/UX Design?",
-      "duration": "7 Min 29 Sec",
-      "url":
-          "https://www.youtube.com/watch?v=T6TjmKA6Axk", // Valid Explanation Video
-      "unlocked": false,
-    },
-    {
-      "title": "How to Make Wireframes",
-      "duration": "12 Min 48 Sec",
-      "url":
-          "https://www.youtube.com/watch?v=oL3Jm1RWOTM", // Wireframes Tutorial
-      "unlocked": false,
-    },
-    {
-      "title": "Your First Design",
-      "duration": "18 Min 32 Sec",
-      "url":
-          "https://www.youtube.com/watch?v=Z8_HvF6bmi4", // Beginner Design Walkthrough
-      "unlocked": false,
-    },
-  ];
-  late YoutubePlayerController _controller;
-  Map<String, dynamic>? selectedVideo;
-
-  @override
-  void initState() {
-    super.initState();
-    selectedVideo = videos[0];
-    _controller = YoutubePlayerController(
-      initialVideoId: YoutubePlayer.convertUrlToId(selectedVideo!['url'])!,
-      flags: const YoutubePlayerFlags(
-        autoPlay: true,
-        mute: false,
-      ),
-    );
-
-    _controller.addListener(() {
-      if (_controller.value.position >= _controller.value.metaData.duration) {
-        _unlockNextVideo();
-      }
-    });
-  }
-
-  void _unlockNextVideo() {
-    final currentIndex = videos.indexOf(selectedVideo!);
-    if (currentIndex + 1 < videos.length &&
-        !videos[currentIndex + 1]['unlocked']) {
-      setState(() {
-        videos[currentIndex + 1]['unlocked'] = true;
-      });
-    }
-  }
-
-  void _playVideo(Map<String, dynamic> video) {
-    setState(() {
-      selectedVideo = video;
-      _controller.load(YoutubePlayer.convertUrlToId(video['url'])!);
-    });
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
+class MyLearning extends StatelessWidget {
+  const MyLearning({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final videoProvider = Provider.of<VideoProvider>(context);
+
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -111,7 +33,7 @@ class _MyLearningState extends State<MyLearning> {
             children: [
               // Video Player Section
               YoutubePlayer(
-                controller: _controller,
+                controller: videoProvider.controller,
                 showVideoProgressIndicator: true,
                 progressIndicatorColor: Colors.purple,
               ),
@@ -193,9 +115,9 @@ class _MyLearningState extends State<MyLearning> {
               ListView.builder(
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
-                itemCount: videos.length,
+                itemCount: videoProvider.videos.length,
                 itemBuilder: (context, index) {
-                  final video = videos[index];
+                  final video = videoProvider.videos[index];
                   return Padding(
                     padding: const EdgeInsets.symmetric(vertical: 8.0),
                     child: Row(
@@ -211,7 +133,7 @@ class _MyLearningState extends State<MyLearning> {
                         Expanded(
                           child: GestureDetector(
                             onTap: video['unlocked']
-                                ? () => _playVideo(video)
+                                ? () => videoProvider.playVideo(video)
                                 : null,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
