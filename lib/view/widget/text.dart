@@ -15,7 +15,8 @@ Widget ButtonLabel(BuildContext context, {required String text, Color? color}) {
   );
 }
 
-Widget textPoppins({name, color, fontweight, double? fontsize,  TextAlign? textAlign}) {
+Widget textPoppins(
+    {name, color, fontweight, double? fontsize, TextAlign? textAlign}) {
   return Text(name,
       style: GoogleFonts.poppins(
           color: color, fontWeight: fontweight, fontSize: fontsize));
@@ -46,6 +47,7 @@ class SnackBarWidget {
     );
   }
 }
+
 alertSheet(BuildContext context,
     {onPressed, alertMessage, confirmButtonLabel}) {
   return showDialog(
@@ -61,17 +63,20 @@ alertSheet(BuildContext context,
         actions: [
           ElevatedButton(
               style: const ButtonStyle(
-                backgroundColor:
-                    MaterialStatePropertyAll(Color.fromARGB(255, 4, 5, 5)),
+                backgroundColor: MaterialStatePropertyAll(
+                    Color.fromARGB(255, 149, 152, 152)),
               ),
               onPressed: () {
                 Navigator.pop(context);
               },
               child: textPoppins(name: 'CANCEL', color: Colors.white)),
+          SizedBox(
+            width: 30,
+          ),
           ElevatedButton(
               style: const ButtonStyle(
-                  backgroundColor:
-                      MaterialStatePropertyAll(Color.fromARGB(255, 1, 1, 1))),
+                  backgroundColor: MaterialStatePropertyAll(
+                      Color.fromARGB(255, 124, 121, 121))),
               onPressed: onPressed,
               child:
                   textPoppins(name: confirmButtonLabel, color: Colors.white)),

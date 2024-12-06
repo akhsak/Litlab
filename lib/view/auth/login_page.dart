@@ -17,176 +17,178 @@ class LoginScreen extends StatelessWidget {
     double screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      body: Padding(
-        padding: EdgeInsets.all(screenWidth * 0.04),
-        child: SingleChildScrollView(
-          child: Form(
-            key: authProvider.formKey,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                SizedBox(height: screenHeight * 0.02),
-                Text(
-                  'Welcome to E-Learning',
-                  style: TextStyle(
-                    fontSize: screenHeight * 0.03,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                Text(
-                  'Please choose your login option below',
-                  style: TextStyle(
-                    fontSize: screenHeight * 0.02,
-                    color: Colors.black,
-                  ),
-                ),
-                SizedBox(height: screenHeight * 0.05),
-                Column(
-                  children: [
-                    TextFormField(
-                      keyboardType: TextInputType.emailAddress,
-                      controller: authProvider.loginEmailController,
-                      decoration: InputDecoration(
-                        prefixIcon: Icon(Icons.email),
-                        labelText: 'Email',
-                        hintText: 'Enter your email address',
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        errorText: authProvider.emailError,
-                      ),
-                      onChanged: authProvider.validateEmail,
+      body: Center(
+        child: Padding(
+          padding: EdgeInsets.all(screenWidth * 0.05),
+          child: SingleChildScrollView(
+            child: Form(
+              key: authProvider.formKey,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SizedBox(height: screenHeight * 0.02),
+                  Text(
+                    'Welcome to E-Learning',
+                    style: TextStyle(
+                      fontSize: screenHeight * 0.03,
+                      fontWeight: FontWeight.bold,
                     ),
-                    SizedBox(height: screenHeight * 0.02),
-                    Consumer<LoginProvider>(
-                      builder: (context, value, child) => TextFormField(
-                        controller: authProvider.loginPasswordController,
-                        obscureText: value.loginObscureText,
+                  ),
+                  Text(
+                    'Please choose your login option below',
+                    style: TextStyle(
+                      fontSize: screenHeight * 0.02,
+                      color: Colors.black,
+                    ),
+                  ),
+                  SizedBox(height: screenHeight * 0.05),
+                  Column(
+                    children: [
+                      TextFormField(
+                        keyboardType: TextInputType.emailAddress,
+                        controller: authProvider.loginEmailController,
                         decoration: InputDecoration(
-                          prefixIcon: Icon(Icons.lock),
-                          labelText: 'Password',
-                          hintText: 'Enter your password',
+                          prefixIcon: Icon(Icons.email),
+                          labelText: 'Email',
+                          hintText: 'Enter your email address',
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8),
                           ),
-                          suffixIcon: IconButton(
-                              onPressed: () {
-                                value.loginObscureTextchange();
-                              },
-                              icon: Icon(value.loginObscureText
-                                  ? Icons.visibility_off
-                                  : Icons.visibility)),
-                          errorText: authProvider.passwordError,
+                          errorText: authProvider.emailError,
                         ),
-                        onChanged: authProvider.validatePassword,
+                        onChanged: authProvider.validateEmail,
                       ),
-                    ),
-                  ],
-                ),
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: TextButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => ForgotPasswordScreen(),
-                        ),
-                      );
-                    },
-                    child: Text(
-                      'Forgot password?',
-                      style: TextStyle(
-                        color: Colors.deepPurple,
-                        decoration: TextDecoration.underline,
-                        decorationColor: Colors.deepPurple,
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(height: screenHeight * 0.01),
-                ElevatedButton(
-                  onPressed: () async {
-                    if (authProvider.formKey.currentState!.validate()) {
-                      authProvider.userKey(context, SnackBarWidget(),
-                          message: 'Incorrect email or password');
-                    }
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.deepPurple,
-                    padding: EdgeInsets.symmetric(
-                      horizontal: screenWidth * 0.4,
-                      vertical: screenHeight * 0.025,
-                    ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16),
-                    ),
-                  ),
-                  child: Text(
-                    'Login',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
-                SizedBox(height: screenHeight * 0.02),
-                Row(
-                  children: [
-                    Expanded(
-                      child: Divider(
-                        thickness: 1,
-                        color: Colors.grey,
-                      ),
-                    ),
-                    Padding(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: screenWidth * 0.02),
-                      child: Text(
-                        'Or login with',
-                        style: TextStyle(
-                          color: Color.fromARGB(255, 118, 114, 114),
-                          fontSize: screenHeight * 0.018,
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      child: Divider(
-                        thickness: 1,
-                        color: Colors.grey,
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(height: screenHeight * 0.03),
-                SizedBox(height: screenHeight * 0.07),
-                Padding(
-                  padding: const EdgeInsets.only(),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "Doesn't have an account on Discover?",
-                        style: TextStyle(fontSize: 12),
-                      ),
-                      TextButton(
-                        onPressed: () {
-                          Navigator.pushAndRemoveUntil(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => SignUpPage()),
-                              (route) => false);
-                        },
-                        child: Text(
-                          'Sign In',
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.w500,
-                            fontSize: 12,
+                      SizedBox(height: screenHeight * 0.02),
+                      Consumer<LoginProvider>(
+                        builder: (context, value, child) => TextFormField(
+                          controller: authProvider.loginPasswordController,
+                          obscureText: value.loginObscureText,
+                          decoration: InputDecoration(
+                            prefixIcon: Icon(Icons.lock),
+                            labelText: 'Password',
+                            hintText: 'Enter your password',
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            suffixIcon: IconButton(
+                                onPressed: () {
+                                  value.loginObscureTextchange();
+                                },
+                                icon: Icon(value.loginObscureText
+                                    ? Icons.visibility_off
+                                    : Icons.visibility)),
+                            errorText: authProvider.passwordError,
                           ),
+                          onChanged: authProvider.validatePassword,
                         ),
                       ),
                     ],
                   ),
-                ),
-              ],
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ForgotPasswordScreen(),
+                          ),
+                        );
+                      },
+                      child: Text(
+                        'Forgot password?',
+                        style: TextStyle(
+                          color: Colors.deepPurple,
+                          decoration: TextDecoration.underline,
+                          decorationColor: Colors.deepPurple,
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: screenHeight * 0.01),
+                  ElevatedButton(
+                    onPressed: () async {
+                      if (authProvider.formKey.currentState!.validate()) {
+                        authProvider.userKey(context, SnackBarWidget(),
+                            message: 'Incorrect email or password');
+                      }
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.deepPurple,
+                      padding: EdgeInsets.symmetric(
+                        horizontal: screenWidth * 0.4,
+                        vertical: screenHeight * 0.025,
+                      ),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                    ),
+                    child: Text(
+                      'Login',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                  SizedBox(height: screenHeight * 0.02),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Divider(
+                          thickness: 1,
+                          color: Colors.grey,
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: screenWidth * 0.02),
+                        child: Text(
+                          'Or login with',
+                          style: TextStyle(
+                            color: Color.fromARGB(255, 118, 114, 114),
+                            fontSize: screenHeight * 0.018,
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        child: Divider(
+                          thickness: 1,
+                          color: Colors.grey,
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: screenHeight * 0.03),
+                  SizedBox(height: screenHeight * 0.07),
+                  Padding(
+                    padding: const EdgeInsets.only(),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Doesn't have an account on Discover?",
+                          style: TextStyle(fontSize: 12),
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            Navigator.pushAndRemoveUntil(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => SignUpPage()),
+                                (route) => false);
+                          },
+                          child: Text(
+                            'Sign Up',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w500,
+                              fontSize: 12,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),

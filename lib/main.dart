@@ -4,7 +4,7 @@ import 'package:littlab/controller/auth_provider.dart';
 import 'package:littlab/controller/bottom.dart';
 import 'package:littlab/controller/course_provider.dart';
 import 'package:littlab/firebase_options.dart';
-import 'package:littlab/view/widget/splash_second.dart';
+import 'package:littlab/view/splash_second.dart';
 import 'package:provider/provider.dart';
 
 void main() async {

@@ -28,10 +28,6 @@ class ForgotPasswordScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Image.asset(
-                'assets/icon_color.png', // Placeholder for the logo image
-                height: 100,
-              ),
               SizedBox(height: 20),
               Text(
                 'Forget password',

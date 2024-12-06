@@ -1,47 +1,29 @@
-// import 'package:flutter/material.dart';
-// import 'package:littlab/view/wishlist.dart';
-
-// class CourseProvider with ChangeNotifier {
-//   List<Course> _courses = [
-//     Course(
-//       name: 'UI/UX Design',
-//       videos: [
-//         Video(
-//             title: 'Introduction to UI/UX',
-//             url: 'https://www.youtube.com/watch?v=example1',
-//             duration: '12 Min'),
-//         Video(
-//             title: 'Figma Essentials',
-//             url: 'https://www.youtube.com/watch?v=example2',
-//             duration: '15 Min'),
-//       ],
-//     ),
-//     Course(
-//       name: 'Flutter Development',
-//       videos: [
-//         Video(
-//             title: 'Getting Started with Flutter',
-//             url: 'https://www.youtube.com/watch?v=example3',
-//             duration: '18 Min'),
-//         Video(
-//             title: 'Building Layouts in Flutter',
-//             url: 'https://www.youtube.com/watch?v=example4',
-//             duration: '20 Min'),
-//       ],
-//     ),
-//   ];
-
-//   List<Course> get courses => _courses;
-
-//   void addCourse(Course course) {
-//     _courses.add(course);
-//     notifyListeners();
-//   }
-// }
 import 'package:flutter/material.dart';
 import 'package:littlab/view/vedio_screen.dart';
 
 class CourseProvider with ChangeNotifier {
+  final categories = [
+    {
+      "title": "Flutter ",
+      "subtitle": "20 Courses",
+      "icon": Icons.calculate_outlined
+    },
+    {
+      "title": "Design",
+      "subtitle": "18 Courses",
+      "icon": Icons.camera_alt_outlined
+    },
+    {
+      "title": "Dart",
+      "subtitle": "10 Courses",
+      "icon": Icons.design_services_outlined
+    },
+    {
+      "title": "Hive",
+      "subtitle": "16 Courses",
+      "icon": Icons.mark_chat_read_outlined
+    },
+  ];
   final List<Course> _courses = [
     Course(
       name: 'Flutter Development',

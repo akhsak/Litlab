@@ -136,23 +136,24 @@ class _SplashScreenState extends State<SplashScreen> {
     );
   }
 
-  goToLogin(BuildContext context) async {
+  goToLogin(context) async {
     User? currentUser = FirebaseAuth.instance.currentUser;
-    final userProvider = Provider.of<LoginProvider>(context, listen: false);
+    final UserPrvd = Provider.of<LoginProvider>(context, listen: false);
 
     if (currentUser == null) {
-      await Future.delayed(const Duration(seconds: 3));
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => const LoginScreen()),
+      await Future.delayed(
+        Duration(seconds: 3),
       );
+      return Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => LoginScreen()));
     } else {
-      await userProvider.getUser();
-      await Future.delayed(const Duration(seconds: 3));
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => BottomScreen()),
+      CircularProgressIndicator();
+      await UserPrvd.getUser();
+      await Future.delayed(
+        Duration(seconds: 3),
       );
+      return Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => BottomScreen()));
     }
   }
 }

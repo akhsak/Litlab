@@ -17,8 +17,8 @@ class BottomProvider extends ChangeNotifier {
   final List<Widget> screens = [
     HomePage(),
     MyLearning(),
-    //  VideoLearningPage(),
-    CourseListScreen(),
+    VideoLearningPage(),
+    //CourseListScreen(),
     SettingsPage(),
   ];
 }
