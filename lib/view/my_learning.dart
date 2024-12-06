@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:littlab/view/widget/text.dart';
 
 class MyLearning extends StatelessWidget {
   @override
@@ -81,18 +82,22 @@ class MyLearning extends StatelessWidget {
                   Icon(Icons.access_time, color: Colors.grey, size: 16),
                   SizedBox(width: 4),
                   Text("72 Hours"),
+                  SizedBox(
+                    width: 150,
+                  ),
+                  Text(
+                    "\$40",
+                    style: TextStyle(
+                      fontSize: 23,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.purple,
+                    ),
+                  ),
                 ],
               ),
               SizedBox(height: 20),
               // Price Section
-              Text(
-                "\$40",
-                style: TextStyle(
-                  fontSize: 28,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.purple,
-                ),
-              ),
+
               SizedBox(height: 20),
               // Tab Section
               Row(
@@ -106,7 +111,10 @@ class MyLearning extends StatelessWidget {
                         ),
                       ),
                       onPressed: () {},
-                      child: Text("Playlist (22)"),
+                      child: textPoppins(
+                          name: "Playlist(22)",
+                          color: Colors.white,
+                          fontsize: 15),
                     ),
                   ),
                   SizedBox(width: 10),
@@ -119,7 +127,7 @@ class MyLearning extends StatelessWidget {
                         side: BorderSide(color: Colors.grey),
                       ),
                       onPressed: () {},
-                      child: Text("Description"),
+                      child: textPoppins(name: "Description"),
                     ),
                   ),
                 ],
@@ -150,10 +158,8 @@ class MyLearning extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
                         horizontal: 40.0, vertical: 12.0),
-                    child: Text(
-                      "Enroll Now",
-                      style: TextStyle(fontSize: 16),
-                    ),
+                    child: textPoppins(
+                        name: "Enroll Now", color: Colors.white, fontsize: 15),
                   ),
                 ),
               ),

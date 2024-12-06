@@ -7,7 +7,6 @@ import 'package:littlab/service/auth_service.dart';
 import 'package:littlab/view/widget/bottombar.dart';
 import 'package:littlab/view/widget/text.dart';
 
-
 class LoginProvider extends ChangeNotifier {
   final AuthService authService = AuthService();
   final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
@@ -124,7 +123,7 @@ class LoginProvider extends ChangeNotifier {
       age: ageController.text,
       uId: firebaseAuth.currentUser!.uid,
     );
-    await authService.addUser(user,context);
+    await authService.addUser(user, context);
     getUser();
   }
 
@@ -162,10 +161,10 @@ class LoginProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  onTabTapped(int index) {
-    currentIndex = index;
-    notifyListeners();
-  }
+  // onTabTapped(int index) {
+  //   currentIndex = index;
+  //   notifyListeners();
+  // }
 
   Future<UserModel?> getUserById(String userId) async {
     try {

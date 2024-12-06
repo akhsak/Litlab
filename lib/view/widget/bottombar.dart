@@ -20,9 +20,9 @@ class BottomScreen extends StatelessWidget {
           children: [
             _BottomNavItem(Icons.home, 'ᴴᵒᵐᵉ', 0, context),
             _BottomNavItem(
-                Icons.play_circle_filled_rounded, 'ⁿᵒᵗⁱᶠⁱᶜᵃᵗⁱᵒⁿ', 1, context),
+                Icons.play_circle_filled_rounded, 'ᴹʸ ˡᵉᵃʳⁿⁱⁿᵍ', 1, context),
             _BottomNavItem(Icons.favorite, 'ʷⁱˢʰˡⁱˢᵗ', 2, context),
-            _BottomNavItem(Icons.settings, 'ᴾʳᵒᶠᶦˡᵉ', 3, context),
+            _BottomNavItem(Icons.settings, 'ˢᵉᵗᵗⁱⁿᵍˢ', 3, context),
           ],
         ),
       ),
@@ -33,7 +33,9 @@ class BottomScreen extends StatelessWidget {
       IconData icon, String label, int index, BuildContext context) {
     final bottomProvider = Provider.of<BottomProvider>(context);
     final isSelected = bottomProvider.currentIndex == index;
-    final color = isSelected ? Colors.deepPurple : Colors.black;
+    final color = isSelected
+        ? Colors.deepPurple
+        : const Color.fromARGB(255, 183, 171, 171);
 
     return GestureDetector(
       onTap: () => bottomProvider.onTap(index),
