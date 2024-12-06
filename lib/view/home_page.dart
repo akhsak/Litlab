@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:littlab/controller/course_provider.dart';
-import 'package:littlab/view/vedio_screen.dart';
-import 'package:littlab/view/widget/category.dart';
 import 'package:littlab/view/wishlist.dart';
+import 'package:littlab/view/widget/category.dart';
 import 'package:provider/provider.dart';
 import 'my_learning.dart';
 

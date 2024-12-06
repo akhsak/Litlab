@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:littlab/view/vedio_screen.dart';
+import 'package:littlab/view/wishlist.dart';
 
 class CourseProvider with ChangeNotifier {
   final categories = [
