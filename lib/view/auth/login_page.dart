@@ -25,16 +25,9 @@ class LoginScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SizedBox(height: screenHeight * 0.1),
-                Center(
-                  child: Image.asset(
-                    'assets/icon_color.png',
-                    height: screenHeight * 0.12,
-                  ),
-                ),
                 SizedBox(height: screenHeight * 0.02),
                 Text(
-                  'Welcome to Discover',
+                  'Welcome to E-Learning',
                   style: TextStyle(
                     fontSize: screenHeight * 0.03,
                     fontWeight: FontWeight.bold,
@@ -104,9 +97,9 @@ class LoginScreen extends StatelessWidget {
                     child: Text(
                       'Forgot password?',
                       style: TextStyle(
-                        color: Color.fromARGB(255, 9, 122, 215),
+                        color: Colors.deepPurple,
                         decoration: TextDecoration.underline,
-                        decorationColor: Color.fromARGB(255, 9, 122, 215),
+                        decorationColor: Colors.deepPurple,
                       ),
                     ),
                   ),
@@ -120,7 +113,7 @@ class LoginScreen extends StatelessWidget {
                     }
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blue,
+                    backgroundColor: Colors.deepPurple,
                     padding: EdgeInsets.symmetric(
                       horizontal: screenWidth * 0.4,
                       vertical: screenHeight * 0.025,
@@ -182,7 +175,7 @@ class LoginScreen extends StatelessWidget {
                               (route) => false);
                         },
                         child: Text(
-                          'Create Account',
+                          'Sign In',
                           style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.w500,

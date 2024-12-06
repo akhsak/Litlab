@@ -1,7 +1,242 @@
+// import 'package:flutter/material.dart';
+// import 'package:littlab/view/widget/text.dart';
+
+// class MyLearning extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       backgroundColor: Colors.white,
+//       appBar: AppBar(
+//         backgroundColor: Colors.white,
+//         elevation: 0,
+//         leading: IconButton(
+//           icon: Icon(Icons.arrow_back, color: Colors.black),
+//           onPressed: () {},
+//         ),
+//         title: Text(
+//           "UI UX Design",
+//           style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+//         ),
+//         centerTitle: true,
+//       ),
+//       body: SingleChildScrollView(
+//         child: Padding(
+//           padding: const EdgeInsets.all(16.0),
+//           child: Column(
+//             crossAxisAlignment: CrossAxisAlignment.start,
+//             children: [
+//               // Video/Thumbnail Section
+//               Stack(
+//                 children: [
+//                   Container(
+//                     height: 200,
+//                     width: double.infinity,
+//                     decoration: BoxDecoration(
+//                       borderRadius: BorderRadius.circular(20),
+//                       image: DecorationImage(
+//                         image: AssetImage('assets/video_thumbnail.jpg'),
+//                         fit: BoxFit.cover,
+//                       ),
+//                     ),
+//                   ),
+//                   Positioned(
+//                     top: 80,
+//                     left: MediaQuery.of(context).size.width / 2 - 30,
+//                     child: CircleAvatar(
+//                       radius: 30,
+//                       backgroundColor: Colors.white,
+//                       child: Icon(
+//                         Icons.play_arrow,
+//                         color: Colors.purple,
+//                         size: 40,
+//                       ),
+//                     ),
+//                   ),
+//                 ],
+//               ),
+//               SizedBox(height: 20),
+//               // Course Details Section
+//               Text(
+//                 "Figma UI UX Design Essentials",
+//                 style: TextStyle(
+//                     fontSize: 20,
+//                     fontWeight: FontWeight.bold,
+//                     color: Colors.black),
+//               ),
+//               SizedBox(height: 8),
+//               Row(
+//                 children: [
+//                   Text(
+//                     "Created by Artur Denisovich",
+//                     style: TextStyle(fontSize: 14, color: Colors.grey),
+//                   ),
+//                 ],
+//               ),
+//               SizedBox(height: 10),
+//               Row(
+//                 children: [
+//                   Icon(Icons.star, color: Colors.amber, size: 16),
+//                   SizedBox(width: 4),
+//                   Text("4.8"),
+//                   SizedBox(width: 20),
+//                   Icon(Icons.access_time, color: Colors.grey, size: 16),
+//                   SizedBox(width: 4),
+//                   Text("72 Hours"),
+//                   SizedBox(
+//                     width: 150,
+//                   ),
+//                   Text(
+//                     "\$40",
+//                     style: TextStyle(
+//                       fontSize: 23,
+//                       fontWeight: FontWeight.bold,
+//                       color: Colors.purple,
+//                     ),
+//                   ),
+//                 ],
+//               ),
+//               SizedBox(height: 20),
+//               // Price Section
+
+//               SizedBox(height: 20),
+//               // Tab Section
+//               Row(
+//                 children: [
+//                   Expanded(
+//                     child: ElevatedButton(
+//                       style: ElevatedButton.styleFrom(
+//                         backgroundColor: Colors.purple,
+//                         shape: RoundedRectangleBorder(
+//                           borderRadius: BorderRadius.circular(20),
+//                         ),
+//                       ),
+//                       onPressed: () {},
+//                       child: textPoppins(
+//                           name: "Playlist(22)",
+//                           color: Colors.white,
+//                           fontsize: 15),
+//                     ),
+//                   ),
+//                   SizedBox(width: 10),
+//                   Expanded(
+//                     child: OutlinedButton(
+//                       style: OutlinedButton.styleFrom(
+//                         shape: RoundedRectangleBorder(
+//                           borderRadius: BorderRadius.circular(20),
+//                         ),
+//                         side: BorderSide(color: Colors.grey),
+//                       ),
+//                       onPressed: () {},
+//                       child: textPoppins(name: "Description"),
+//                     ),
+//                   ),
+//                 ],
+//               ),
+//               SizedBox(height: 20),
+//               // Playlist Section
+//               ListView(
+//                 shrinkWrap: true,
+//                 physics: NeverScrollableScrollPhysics(),
+//                 children: [
+//                   playlistItem("Introduction", "2 Min 18 Sec", true),
+//                   playlistItem("What is UI UX design?", "18 Min 46 Sec", false),
+//                   playlistItem("How to make wireframe", "20 Min 58 Sec", false),
+//                   playlistItem("Your first design", "20 Min 58 Sec", false),
+//                 ],
+//               ),
+//               SizedBox(height: 20),
+//               // Enroll Now Button
+//               Center(
+//                 child: ElevatedButton(
+//                   style: ElevatedButton.styleFrom(
+//                     backgroundColor: Colors.purple,
+//                     shape: RoundedRectangleBorder(
+//                       borderRadius: BorderRadius.circular(20),
+//                     ),
+//                   ),
+//                   onPressed: () {},
+//                   child: Padding(
+//                     padding: const EdgeInsets.symmetric(
+//                         horizontal: 40.0, vertical: 12.0),
+//                     child: textPoppins(
+//                         name: "Enroll Now", color: Colors.white, fontsize: 15),
+//                   ),
+//                 ),
+//               ),
+//             ],
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+
+//   Widget playlistItem(String title, String duration, bool isUnlocked) {
+//     return Padding(
+//       padding: const EdgeInsets.symmetric(vertical: 8.0),
+//       child: Row(
+//         children: [
+//           Icon(
+//             isUnlocked ? Icons.play_circle_fill : Icons.lock,
+//             color: isUnlocked ? Colors.purple : Colors.grey,
+//           ),
+//           SizedBox(width: 10),
+//           Expanded(
+//             child: Column(
+//               crossAxisAlignment: CrossAxisAlignment.start,
+//               children: [
+//                 Text(
+//                   title,
+//                   style: TextStyle(
+//                       fontWeight: FontWeight.bold, color: Colors.black),
+//                 ),
+//                 Text(
+//                   duration,
+//                   style: TextStyle(color: Colors.grey),
+//                 ),
+//               ],
+//             ),
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+// }
 import 'package:flutter/material.dart';
 import 'package:littlab/view/widget/text.dart';
 
-class MyLearning extends StatelessWidget {
+class MyLearning extends StatefulWidget {
+  @override
+  _MyLearningState createState() => _MyLearningState();
+}
+
+class _MyLearningState extends State<MyLearning> {
+  final List<Map<String, dynamic>> videos = [
+    {
+      "title": "Introduction",
+      "duration": "2 Min 18 Sec",
+      "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "unlocked": true
+    },
+    {
+      "title": "What is UI UX design?",
+      "duration": "18 Min 46 Sec",
+      "url": "https://www.youtube.com/watch?v=2VauBWLXnvA",
+      "unlocked": false
+    },
+    {
+      "title": "How to make wireframe",
+      "duration": "20 Min 58 Sec",
+      "url": "https://www.youtube.com/watch?v=w7ejDZ8SWv8",
+      "unlocked": false
+    },
+    {
+      "title": "Your first design",
+      "duration": "20 Min 58 Sec",
+      "url": "https://www.youtube.com/watch?v=3tMdZv4aLVk",
+      "unlocked": false
+    },
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -11,7 +246,9 @@ class MyLearning extends StatelessWidget {
         elevation: 0,
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: Colors.black),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
         title: Text(
           "UI UX Design",
@@ -96,9 +333,6 @@ class MyLearning extends StatelessWidget {
                 ],
               ),
               SizedBox(height: 20),
-              // Price Section
-
-              SizedBox(height: 20),
               // Tab Section
               Row(
                 children: [
@@ -134,15 +368,19 @@ class MyLearning extends StatelessWidget {
               ),
               SizedBox(height: 20),
               // Playlist Section
-              ListView(
+              ListView.builder(
                 shrinkWrap: true,
                 physics: NeverScrollableScrollPhysics(),
-                children: [
-                  playlistItem("Introduction", "2 Min 18 Sec", true),
-                  playlistItem("What is UI UX design?", "18 Min 46 Sec", false),
-                  playlistItem("How to make wireframe", "20 Min 58 Sec", false),
-                  playlistItem("Your first design", "20 Min 58 Sec", false),
-                ],
+                itemCount: videos.length,
+                itemBuilder: (context, index) {
+                  final video = videos[index];
+                  return playlistItem(
+                    video['title'],
+                    video['duration'],
+                    video['unlocked'],
+                    index,
+                  );
+                },
               ),
               SizedBox(height: 20),
               // Enroll Now Button
@@ -170,7 +408,8 @@ class MyLearning extends StatelessWidget {
     );
   }
 
-  Widget playlistItem(String title, String duration, bool isUnlocked) {
+  Widget playlistItem(
+      String title, String duration, bool isUnlocked, int index) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: Row(
@@ -196,7 +435,61 @@ class MyLearning extends StatelessWidget {
               ],
             ),
           ),
+          if (isUnlocked)
+            IconButton(
+              icon: Icon(Icons.arrow_forward),
+              onPressed: () {
+                // Navigate to video screen here
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => VideoScreen(
+                      video: videos[index],
+                      onVideoWatched: () {
+                        setState(() {
+                          if (index + 1 < videos.length) {
+                            videos[index + 1]['unlocked'] = true;
+                          }
+                        });
+                      },
+                    ),
+                  ),
+                );
+              },
+            ),
         ],
+      ),
+    );
+  }
+}
+
+class VideoScreen extends StatelessWidget {
+  final Map<String, dynamic> video;
+  final Function onVideoWatched;
+
+  VideoScreen({required this.video, required this.onVideoWatched});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(video['title']),
+        backgroundColor: Colors.purple,
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text("Playing: ${video['title']}"),
+            ElevatedButton(
+              onPressed: () {
+                onVideoWatched();
+                Navigator.pop(context);
+              },
+              child: Text("Mark as Watched"),
+            ),
+          ],
+        ),
       ),
     );
   }

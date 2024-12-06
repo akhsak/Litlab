@@ -15,7 +15,7 @@ Widget ButtonLabel(BuildContext context, {required String text, Color? color}) {
   );
 }
 
-Widget textPoppins({name, color, fontweight, double? fontsize}) {
+Widget textPoppins({name, color, fontweight, double? fontsize,  TextAlign? textAlign}) {
   return Text(name,
       style: GoogleFonts.poppins(
           color: color, fontWeight: fontweight, fontSize: fontsize));

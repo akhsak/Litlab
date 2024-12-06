@@ -4,7 +4,6 @@ import 'package:littlab/controller/auth_provider.dart';
 import 'package:littlab/controller/bottom.dart';
 import 'package:littlab/view/auth/login_page.dart';
 import 'package:littlab/view/widget/text.dart';
-
 import 'package:provider/provider.dart';
 
 class SettingsPage extends StatelessWidget {
@@ -17,61 +16,82 @@ class SettingsPage extends StatelessWidget {
     final authProvider = Provider.of<LoginProvider>(context, listen: false);
 
     final firebaseauth = FirebaseAuth.instance.currentUser;
+
     return Scaffold(
       backgroundColor: const Color(0xFFF5F5F5),
+      appBar: AppBar(
+        title: const Text(
+          'Settings',
+          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+        ),
+        backgroundColor: Colors.deepPurple,
+        elevation: 0,
+        centerTitle: true,
+      ),
       body: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
         child: Consumer<LoginProvider>(
+          // Use Consumer to get LoginProvider data
           builder: (context, value, child) => Column(
             children: [
               SizedBox(height: size.height * 0.05),
-              Row(
-                children: [
-                  SizedBox(width: size.width * 0.02),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      textAbel(
-                        name: value.currentUser?.name ?? 'Unknown',
-                        color: const Color(0xFF1D1617),
-                        fontsize: size.width * 0.05,
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: size.width * 0.05),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    CircleAvatar(
+                      radius: 40,
+                      backgroundColor: Colors.grey.shade300,
+                      backgroundImage: NetworkImage(
+                        'https://www.example.com/profile-pic.jpg', // Replace with a dynamic image URL
                       ),
-                      SizedBox(height: size.height * 0.008),
-                      textPoppins(
-                        name: value.currentUser?.email ??
-                            firebaseauth?.email ??
-                            'no email',
-                        color: const Color(0xFF888888),
-                      ),
-                    ],
-                  ),
-                ],
+                    ),
+                    SizedBox(width: size.width * 0.04),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        textAbel(
+                          name: value.currentUser?.name ?? 'Unknown',
+                          color: const Color(0xFF1D1617),
+                          fontsize: size.width * 0.06,
+                        ),
+                        SizedBox(height: size.height * 0.008),
+                        textPoppins(
+                          name: value.currentUser?.email ??
+                              firebaseauth?.email ??
+                              'No email',
+                          color: const Color(0xFF888888),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
-              SizedBox(height: size.height * 0.01),
+              SizedBox(height: size.height * 0.03),
               const Divider(
                 color: Color.fromARGB(255, 186, 186, 186),
+                thickness: 1.5,
+                indent: 40,
+                endIndent: 40,
               ),
-              const Divider(
-                color: Color.fromARGB(255, 186, 186, 186),
-              ),
-              SizedBox(height: size.height * 0.02),
-              SizedBox(height: 15),
-              SizedBox(
-                width: size.width * 0.9,
-                height: 60,
+              SizedBox(height: size.height * 0.03),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: size.width * 0.09),
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    foregroundColor: Colors.black,
-                    backgroundColor: Colors.white,
-                    side: BorderSide(
-                        color: const Color.fromARGB(255, 238, 236, 236)),
+                    foregroundColor: Colors.white,
+                    backgroundColor:
+                        const Color.fromARGB(255, 88, 84, 84), // text color
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    padding: EdgeInsets.symmetric(vertical: 2),
                   ),
                   onPressed: () {
                     alertSheet(
                       context,
-                      alertMessage: 'ARE YOU SURE TO LOGOUT ?',
+                      alertMessage: 'Are you sure you want to logout?',
                       onPressed: () async {
-                        // bottomProvider.setInitIndex(0);
                         await FirebaseAuth.instance.signOut();
 
                         Navigator.pushAndRemoveUntil(
@@ -83,17 +103,20 @@ class SettingsPage extends StatelessWidget {
                         );
                         bottomProvider.currentIndex = 0;
                       },
-                      confirmButtonLabel: 'LOGOUT',
+                      confirmButtonLabel: 'Logout',
                     );
                   },
                   child: const Text(
                     'Logout',
-                    style: TextStyle(decoration: TextDecoration.underline),
+                    style: TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 1.2,
+                    ),
                   ),
                 ),
               ),
-              SizedBox(height: 30),
-              const Text(''),
+              SizedBox(height: 40),
             ],
           ),
         ),
